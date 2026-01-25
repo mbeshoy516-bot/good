@@ -95,12 +95,10 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
   body {
-    @apply bg-background text-foreground font-exo;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Exo 2', sans-serif;
   }
 }
 
