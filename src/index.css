@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Exo+2:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 150 100% 95%;
+
+    --card: 150 20% 8%;
+    --card-foreground: 150 100% 95%;
+
+    --popover: 150 20% 8%;
+    --popover-foreground: 150 100% 95%;
+
+    --primary: 150 100% 50%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 200 70% 50%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 150 10% 15%;
+    --muted-foreground: 150 20% 55%;
+
+    --accent: 45 100% 55%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 30% 20%;
+    --input: 150 20% 15%;
+    --ring: 150 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom farm game tokens */
+    --glow-primary: 150 100% 50%;
+    --glow-accent: 45 100% 55%;
+    --glow-secondary: 200 70% 50%;
+    --space-dark: 0 0% 0%;
+    --earth-ocean: 220 60% 25%;
+    --earth-land: 120 30% 30%;
+
+    --sidebar-background: 150 20% 5%;
+    --sidebar-foreground: 150 100% 95%;
+    --sidebar-primary: 150 100% 50%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 150 20% 10%;
+    --sidebar-accent-foreground: 150 100% 95%;
+    --sidebar-border: 150 30% 15%;
+    --sidebar-ring: 150 100% 50%;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 150 100% 95%;
+
+    --card: 150 20% 8%;
+    --card-foreground: 150 100% 95%;
+
+    --popover: 150 20% 8%;
+    --popover-foreground: 150 100% 95%;
+
+    --primary: 150 100% 50%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 200 70% 50%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 150 10% 15%;
+    --muted-foreground: 150 20% 55%;
+
+    --accent: 45 100% 55%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 30% 20%;
+    --input: 150 20% 15%;
+    --ring: 150 100% 50%;
+
+    --sidebar-background: 150 20% 5%;
+    --sidebar-foreground: 150 100% 95%;
+    --sidebar-primary: 150 100% 50%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 150 20% 10%;
+    --sidebar-accent-foreground: 150 100% 95%;
+    --sidebar-border: 150 30% 15%;
+    --sidebar-ring: 150 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-exo;
+  }
+}
+
+@layer utilities {
+  .font-orbitron {
+    font-family: 'Orbitron', sans-serif;
+  }
+  
+  .font-exo {
+    font-family: 'Exo 2', sans-serif;
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 20px hsl(var(--glow-primary) / 0.4),
+                0 0 40px hsl(var(--glow-primary) / 0.2),
+                inset 0 0 20px hsl(var(--glow-primary) / 0.1);
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 20px hsl(var(--glow-accent) / 0.4),
+                0 0 40px hsl(var(--glow-accent) / 0.2),
+                inset 0 0 20px hsl(var(--glow-accent) / 0.1);
+  }
+
+  .glow-secondary {
+    box-shadow: 0 0 20px hsl(var(--glow-secondary) / 0.4),
+                0 0 40px hsl(var(--glow-secondary) / 0.2),
+                inset 0 0 20px hsl(var(--glow-secondary) / 0.1);
+  }
+
+  .text-glow-primary {
+    text-shadow: 0 0 10px hsl(var(--glow-primary) / 0.8),
+                 0 0 20px hsl(var(--glow-primary) / 0.5),
+                 0 0 30px hsl(var(--glow-primary) / 0.3);
+  }
+
+  .text-glow-accent {
+    text-shadow: 0 0 10px hsl(var(--glow-accent) / 0.8),
+                 0 0 20px hsl(var(--glow-accent) / 0.5),
+                 0 0 30px hsl(var(--glow-accent) / 0.3);
+  }
+
+  .glass-panel {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--card) / 0.6) 0%,
+      hsl(var(--card) / 0.3) 100%
+    );
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--primary) / 0.2);
+  }
+
+  .glass-card {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--card) / 0.8) 0%,
+      hsl(var(--card) / 0.4) 100%
+    );
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .space-gradient {
+    background: radial-gradient(
+      ellipse at center,
+      hsl(0 0% 3%) 0%,
+      hsl(0 0% 0%) 100%
+    );
+  }
+
+  /* Shooting star animation - thin white streaks */
+  .shooting-star-thin {
+    position: absolute;
+    width: var(--length, 80px);
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 30%,
+      rgba(255, 255, 255, 0.8) 100%
+    );
+    transform: rotate(var(--angle, 45deg));
+    animation: shoot-thin var(--duration, 0.8s) linear forwards;
+    opacity: 0.6;
+  }
+
+  .shooting-star-thin::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -0.5px;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.8);
+  }
+
+  @keyframes shoot-thin {
+    0% {
+      opacity: 0;
+      transform: rotate(var(--angle, 45deg)) translateX(0);
+    }
+    10% {
+      opacity: 0.6;
+    }
+    80% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 0;
+      transform: rotate(var(--angle, 45deg)) translateX(200px);
+    }
+  }
+
+  /* Static stars background */
+  .stars-bg {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(1px 1px at 20% 30%, white, transparent),
+      radial-gradient(1px 1px at 40% 70%, rgba(255,255,255,0.8), transparent),
+      radial-gradient(1px 1px at 50% 20%, rgba(255,255,255,0.6), transparent),
+      radial-gradient(1px 1px at 60% 50%, white, transparent),
+      radial-gradient(1px 1px at 70% 80%, rgba(255,255,255,0.7), transparent),
+      radial-gradient(1px 1px at 80% 10%, rgba(255,255,255,0.5), transparent),
+      radial-gradient(1px 1px at 90% 40%, white, transparent),
+      radial-gradient(1px 1px at 10% 60%, rgba(255,255,255,0.6), transparent),
+      radial-gradient(1px 1px at 30% 90%, rgba(255,255,255,0.8), transparent),
+      radial-gradient(1.5px 1.5px at 15% 45%, white, transparent),
+      radial-gradient(1.5px 1.5px at 85% 25%, rgba(255,255,255,0.9), transparent),
+      radial-gradient(0.5px 0.5px at 25% 15%, rgba(255,255,255,0.4), transparent),
+      radial-gradient(0.5px 0.5px at 55% 85%, rgba(255,255,255,0.5), transparent),
+      radial-gradient(0.5px 0.5px at 75% 65%, rgba(255,255,255,0.3), transparent),
+      radial-gradient(0.5px 0.5px at 35% 35%, rgba(255,255,255,0.4), transparent),
+      radial-gradient(0.5px 0.5px at 95% 55%, rgba(255,255,255,0.3), transparent);
+    background-size: 200px 200px;
+    animation: twinkle 8s ease-in-out infinite alternate;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.85; }
+  }
+
+  /* Finance Modal – Deep Dark Forest Green glassmorphism */
+  .finance-modal-bg {
+    background: hsl(152 32% 10% / 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  .finance-modal-balance-box {
+    background: hsl(152 30% 6%);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  /* Top Bar Silos – glassy green, horizontal scroll */
+  .glassy-green-bar {
+    background: hsl(152 35% 14% / 0.75);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid hsl(150 40% 28% / 0.5);
+  }
+  .glassy-green-bar .silo-pill {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    background: hsl(152 30% 12% / 0.4);
+    border: 1px solid hsl(150 35% 25% / 0.4);
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Trading Room – warning (hazard stripes), panels, slider, price flicker */
+  .warning-box-hazard-outer {
+    background: repeating-linear-gradient(
+      -45deg,
+      #dc2626 0,
+      #dc2626 8px,
+      #fff 8px,
+      #fff 16px
+    );
+  }
+  .warning-box-hazard-inner {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .trading-room-panel {
+    background: hsl(152 32% 14% / 0.75);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid hsl(150 40% 28% / 0.5);
+  }
+
+  .price-flicker-up {
+    animation: price-flash 0.35s ease-out;
+  }
+  .price-flicker-down {
+    animation: price-flash 0.35s ease-out;
+  }
+  @keyframes price-flash {
+    0% { opacity: 1; }
+    40% { opacity: 0.7; }
+    100% { opacity: 1; }
+  }
+
+  .trading-slider .bg-primary {
+    background-color: #3b82f6 !important;
+  }
+  .trading-slider [class*='bg-secondary'] {
+    background-color: rgba(255, 255, 255, 0.12);
+  }
+  .trading-slider [role="slider"] {
+    background-color: #e5e7eb;
+    border-color: #3b82f6;
+  }
+}
